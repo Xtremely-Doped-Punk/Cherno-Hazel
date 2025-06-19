@@ -6,7 +6,7 @@ class Sandbox : public ApplicationBase
 public:
 	void Run() override
 	{
-		Print("Welcome to Sandbox!");
+		LOG_INFO("Welcome to Sandbox!");
 		ApplicationBase::Run();
 	}
 };

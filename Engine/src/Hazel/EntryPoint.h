@@ -9,8 +9,9 @@ namespace Hazel
 }
 
 void main()  
-{  
-	Hazel::Print("Application starting through Hazel Engine's Entry-Point :)");
+{
+	Hazel::Log::Init("%^[%D %r] %5!n[%7!s|%-7!!]: (%L)%$ %v"); // my format
+	HZ_WARN("Application starting through Hazel Engine's Entry-Point :)");
 	auto app = Hazel::CreateApplication();
 	app->Run();  
 	delete app;  
