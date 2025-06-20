@@ -2,10 +2,10 @@
 .vs/
 
 # build binaries (will include later)
-bin/
+_bin/
 
 # temporary intermediate files
-temp-int/ 
+_obj/ 
 
 # Files
 *.user
