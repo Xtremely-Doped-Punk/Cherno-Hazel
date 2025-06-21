@@ -40,6 +40,8 @@ workspace "ChernoHazel" -- solution workspace
 		defines "HZ_DIST"
 		optimize "On"
 
+	filter { "toolset:msc*" } -- Add /utf-8 only for MSVC-based toolchains (Visual Studio)
+    	buildoptions { "/utf-8" }
 
 -- path root inside projects: relative to the .vcxproj file, i.e. inside project folder
 
@@ -70,8 +72,8 @@ project "Sandbox"
 
 	includedirs -- Additional Include Directories
 	{
-		"%{wks.location}Engine/vendor/spdlog/include",
-		"%{wks.location}Engine/src",
+		"%{wks.location}/Engine/vendor/spdlog/include",
+		"%{wks.location}/Engine/src",
 	}
 	links -- add other project refernces here
 	{
