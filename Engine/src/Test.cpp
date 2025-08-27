@@ -1,11 +1,12 @@
 #include "Test.h"
 #include <stdio.h>
 
+
 namespace Hazel {
 
-	void Print()
+	void Print(const char* msg)
 	{
-		printf("Welcome to Hazel Engine!\n");
+		printf("%s\n",msg);
 	}
 
 }
