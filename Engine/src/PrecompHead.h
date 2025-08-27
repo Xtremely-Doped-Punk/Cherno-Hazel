@@ -14,7 +14,10 @@
 #include <unordered_map>
 #include <unordered_set>
 
-// Windows API
+// Hazel APIs
+#include "Hazel/Log.h"
+
+// Windows APIs
 #ifdef HZ_PLATFORM_WINDOWS
 	#include <Windows.h>
 #endif

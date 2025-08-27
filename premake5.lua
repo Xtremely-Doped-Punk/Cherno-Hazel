@@ -4,6 +4,11 @@ outdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}" -- using variable c
 -- also 'set as start up project' need to be set manually for now, by default after generating files it is Engine, 
 -- and it will not work as it builds .dll not .exe file, so change to Sandbox manually
 
+-- Include directories relative to the root folder (solution directory) in a dict format for easier accessibility
+IncludeDir = {}
+IncludeDir["spdlog"] = "%{wks.location}/Engine/vendor/spdlog/include"
+IncludeDir["glfw"] = "%{wks.location}/Engine/vendor/glfw/master/include"
+
 
 workspace "ChernoHazel" -- solution workspace
 	architecture "x64"
@@ -13,6 +18,8 @@ workspace "ChernoHazel" -- solution workspace
 		"Release", -- optim ver with lesser logging
 		"Distribution" -- final actual release, with no logging
 	}
+	startproject "Sandbox" -- Specify the startup project for a workspace (only for VS)
+
 	-- applying common filters for all projects
 	language "C++"
 	
@@ -47,6 +54,9 @@ workspace "ChernoHazel" -- solution workspace
 	filter { "toolset:msc*" } -- Add /utf-8 only for MSVC-based toolchains (Visual Studio)
     	buildoptions { "/utf-8" }
 
+-- If a directory is specified, Premake looks for a file named premake5.lua in that directory and runs it if found.
+include "Engine/vendor/glfw" -- its same as copy-pasting that code into this file
+
 -- path root inside projects: relative to the .vcxproj file, i.e. inside project folder
 
 project "Engine"
@@ -55,8 +65,15 @@ project "Engine"
 	
 	includedirs -- Additional Include Directories
 	{
-		"%{prj.location}/vendor/spdlog/include",
 		"%{prj.location}/src", -- adding src files to be accessable for inter-module dependencies
+		"%{IncludeDir.spdlog}",
+		"%{IncludeDir.glfw}",
+	}
+
+	links -- Add external project refernces here
+	{
+		"GLFW",
+		"opengl32.lib",
 	}
 
 	filter {"system:windows"}
@@ -80,7 +97,7 @@ project "Sandbox"
 		"%{wks.location}/Engine/vendor/spdlog/include",
 		"%{wks.location}/Engine/src",
 	}
-	links -- add other project refernces here
+	links -- Add other project refernces here
 	{
 		"Engine",
 	}
