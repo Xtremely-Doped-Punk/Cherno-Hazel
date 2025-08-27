@@ -1,3 +1,4 @@
+#include <PrecompHead.h>
 #include <Hazel.h> // client side imports necessary from hazel-engine-apps (add the path in additional-include-dirs)
 using namespace Hazel;
 

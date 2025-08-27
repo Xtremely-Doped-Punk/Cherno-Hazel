@@ -2,9 +2,6 @@
 
 #include "Hazel/Core.h"
 
-#include <string>
-#include <functional>
-
 namespace Hazel {
 
 	// Initial Setup: Event calls are blocking, i.e. event invokes are immediately dispatched.

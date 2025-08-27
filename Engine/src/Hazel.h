@@ -1,7 +1,5 @@
-#pragma once
 // all dependencies for hazel clients to entend application services put here
-
-#include "Test.h"
+#pragma once
 
 // for use by Hazel applications
 #include "Hazel/ApplicationBase.h"
