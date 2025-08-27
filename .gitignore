@@ -1,11 +1,14 @@
-# visual studio directories
+# visual studio dirs & files
 .vs/
+*.user
+
+# premake should be able to generate proj files
+*.filters
+*.vcxproj
+*.sln
 
 # build binaries (will include later)
-bin/
+_bin/
 
 # temporary intermediate files
-temp-int/ 
-
-# Files
-*.user
+_obj/ 
