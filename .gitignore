@@ -1,0 +1,11 @@
+# visual studio directories
+.vs/
+
+# build binaries (will include later)
+bin/
+
+# temporary intermediate files
+temp-int/ 
+
+# Files
+*.user
