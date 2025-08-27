@@ -1,6 +1,10 @@
 outdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}" -- using variable common for multiple projects, ex: Debug-Win-x64
 -- NOTE: this beta/aplha is not properly exporting for relative paths, so i have kept absolute paths with macros exactly how we define inside the VS
 
+-- also 'set as start up project' need to be set manually for now, by default after generating files it is Engine, 
+-- and it will not work as it builds .dll not .exe file, so change to Sandbox manually
+
+
 workspace "ChernoHazel" -- solution workspace
 	architecture "x64"
 	configurations 
@@ -52,6 +56,7 @@ project "Engine"
 	includedirs -- Additional Include Directories
 	{
 		"%{prj.location}/vendor/spdlog/include",
+		"%{prj.location}/src", -- adding src files to be accessable for inter-module dependencies
 	}
 
 	filter {"system:windows"}

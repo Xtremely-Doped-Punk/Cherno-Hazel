@@ -4,6 +4,7 @@
 
 #include "spdlog/spdlog.h"
 #include "spdlog/sinks/stdout_color_sinks.h"
+#include "spdlog/fmt/ostr.h" // to log custom datatypes given the proper overriding ostream
 
 using namespace spdlog;
 
