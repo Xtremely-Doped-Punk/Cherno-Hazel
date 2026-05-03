@@ -2,6 +2,11 @@
 
 #include "Core.h"
 
+// If you need to use source location flags like% s, % g, % #, % !, is necessary to define this compiler flag
+// define SPDLOG_ACTIVE_LEVEL to one of those (before including spdlog.h):
+// SPDLOG_LEVEL_TRACE, SPDLOG_LEVEL_DEBUG, SPDLOG_LEVEL_INFO, SPDLOG_LEVEL_WARN,
+// SPDLOG_LEVEL_ERROR, SPDLOG_LEVEL_CRITICAL, SPDLOG_LEVEL_OFF (fully turn off loggin at compile time itself)
+#define SPDLOG_ACTIVE_LEVEL SPDLOG_LEVEL_TRACE
 #include "spdlog/spdlog.h"
 #include "spdlog/sinks/stdout_color_sinks.h"
 #include "spdlog/fmt/ostr.h" // to log custom datatypes given the proper overriding ostream

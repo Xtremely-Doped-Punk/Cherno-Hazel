@@ -29,7 +29,7 @@ namespace Hazel {
 		std::string ToString() const override
 		{
 			std::stringstream ss;
-			ss << "KeyPressedEvent called!";
+			ss << "KeyPressedEvent :: key=" << m_KeyCode << ", count=" << m_RepeatCount;
 			return ss.str();
 		}
 
@@ -44,7 +44,7 @@ namespace Hazel {
 		std::string ToString() const override
 		{
 			std::stringstream ss;
-			ss << "KeyReleasedEvent called!";
+			ss << "KeyPressedEvent :: key=" << m_KeyCode;
 			return ss.str();
 		}
 

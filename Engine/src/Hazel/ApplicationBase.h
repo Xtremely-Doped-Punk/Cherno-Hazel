@@ -1,6 +1,7 @@
 #pragma once
 #include "Hazel/Core.h"
 #include "Events/EventBase.h"
+#include "Events/AppEvent.h"
 #include "WindowBase.h"
 
 namespace Hazel {
@@ -13,9 +14,12 @@ namespace Hazel {
 		std::unique_ptr<WindowBase> m_Window;
 		bool m_Running = true;
 
+		bool OnWindowClose(WindowCloseEvent& e);
+
 	public:
 		ApplicationBase();
 		virtual void Run();
+		void OnEvent(EventBase& e);
 	};
 
 	// TO BE DEFINED IN CLIENT
