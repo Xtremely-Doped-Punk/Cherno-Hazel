@@ -19,11 +19,11 @@ namespace Hazel {
 		std::string ToString() const override
 		{
 			std::stringstream ss;
-			ss << "WindowCloseEvent: " << m_Width << ", " << m_Height;
+			ss << "WindowResizeEvent: " << m_Width << ", " << m_Height;
 			return ss.str();
 		}
 
-		EVENT_CLASS_TYPE(WindowClose)
+		EVENT_CLASS_TYPE(WindowResize)
 		EVENT_CLASS_CATEGORY(EvCat_Application)
 	};
 
