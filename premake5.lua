@@ -53,6 +53,9 @@ project "Engine"
 	location "Engine" -- relative folder location
 	kind "SharedLib" -- config-type: Dynamic Library (.dll)
 	
+	pchheader "PrecompHead.h" -- precompiled header file to config for this proj
+	pchsource "%{prj.location}/src/PrecompHead.cpp" -- equivalent of setting /Create for pch, only needed for VS
+	
 	includedirs -- Additional Include Directories
 	{
 		"%{prj.location}/vendor/spdlog/include",
